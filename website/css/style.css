@@ -1,0 +1,216 @@
+/* css/style.css */
+:root {
+    --primary-dark: #1a1a1a;
+    --accent-gold: #c5a059;
+    --bg-cream: #fdfcf8;
+    --text-gray: #4a4a4a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--primary-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+/* Navigation */
+header {
+    background: white;
+    padding: 1rem 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--accent-gold);
+}
+
+/* Page Headers (For About & Services) */
+.page-header {
+    background: var(--primary-dark);
+    color: white;
+    padding: 6rem 10%;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    color: var(--accent-gold);
+}
+
+/* General Sections */
+section {
+    padding: 5rem 10%;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Grid Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Photo Grids */
+.photo-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.photo-grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Cards & Content Blocks */
+.content-card {
+    background: white;
+    padding: 3rem;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.content-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+}
+
+.placeholder-img {
+    width: 100%;
+    background: #e0e0e0;
+    object-fit: cover;
+    display: block;
+}
+
+/* Contact & Buttons */
+.btn {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+.contact-section {
+    background: var(--primary-dark);
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #111;
+    color: #777;
+    font-size: 0.8rem;
+}
+
+/* Mobile Responsiveness Rules (UPDATED) */
+@media (max-width: 768px) {
+    /* Make the big layout sections stack */
+    .grid-2 { 
+        grid-template-columns: 1fr; 
+        gap: 2rem; 
+    }
+    
+    /* FORCE photo grids to stay side-by-side on mobile */
+    .photo-grid-2, .photo-grid-4 {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem; /* Slightly smaller gap for small screens */
+    }
+
+    /* Force mobile images to keep their shape and not stretch */
+    .photo-grid-2 img, .photo-grid-4 img {
+        height: 180px !important; /* Shorter height so they fit nicely side-by-side */
+        width: 100%;
+        object-fit: cover; 
+    }
+
+    /* Adjust the hero text size for small screens */
+    .hero h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    /* BRING BACK THE NAVIGATION: Stack it neatly below the logo */
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    nav ul { 
+        display: flex; 
+        flex-wrap: wrap; /* Allows links to drop to a new line if needed */
+        justify-content: center; 
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 0.5rem 1rem; /* Spacing between links */
+    }
+}
